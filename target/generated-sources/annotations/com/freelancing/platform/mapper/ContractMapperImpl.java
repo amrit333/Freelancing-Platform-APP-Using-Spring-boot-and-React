@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-05T09:40:15+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Microsoft)"
+    date = "2026-05-11T09:21:37+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
 public class ContractMapperImpl implements ContractMapper {
@@ -29,10 +29,10 @@ public class ContractMapperImpl implements ContractMapper {
         ContractDto contractDto = new ContractDto();
 
         contractDto.setProjectId( contractProjectId( contract ) );
-        contractDto.setId( contract.getId() );
-        contractDto.setFreelancer( userMapper.toDto( contract.getFreelancer() ) );
-        contractDto.setStatus( contract.getStatus() );
         contractDto.setCreatedAt( contract.getCreatedAt() );
+        contractDto.setFreelancer( userMapper.toDto( contract.getFreelancer() ) );
+        contractDto.setId( contract.getId() );
+        contractDto.setStatus( contract.getStatus() );
 
         return contractDto;
     }

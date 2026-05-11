@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-05T09:40:16+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Microsoft)"
+    date = "2026-05-11T09:21:37+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
 public class BidMapperImpl implements BidMapper {
@@ -30,12 +30,12 @@ public class BidMapperImpl implements BidMapper {
         BidDto bidDto = new BidDto();
 
         bidDto.setProjectId( bidProjectId( bid ) );
-        bidDto.setId( bid.getId() );
-        bidDto.setFreelancer( userMapper.toDto( bid.getFreelancer() ) );
-        bidDto.setProposal( bid.getProposal() );
         bidDto.setAmount( bid.getAmount() );
-        bidDto.setStatus( bid.getStatus() );
         bidDto.setCreatedAt( bid.getCreatedAt() );
+        bidDto.setFreelancer( userMapper.toDto( bid.getFreelancer() ) );
+        bidDto.setId( bid.getId() );
+        bidDto.setProposal( bid.getProposal() );
+        bidDto.setStatus( bid.getStatus() );
 
         return bidDto;
     }
@@ -62,8 +62,8 @@ public class BidMapperImpl implements BidMapper {
 
         Bid.BidBuilder bid = Bid.builder();
 
-        bid.proposal( bidRequest.getProposal() );
         bid.amount( bidRequest.getAmount() );
+        bid.proposal( bidRequest.getProposal() );
 
         return bid.build();
     }

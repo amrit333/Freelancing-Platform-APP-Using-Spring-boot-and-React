@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-05T09:40:16+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.11 (Microsoft)"
+    date = "2026-05-11T09:21:37+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
 public class ProjectMapperImpl implements ProjectMapper {
@@ -28,14 +28,14 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         ProjectDto projectDto = new ProjectDto();
 
-        projectDto.setId( project.getId() );
-        projectDto.setClient( userMapper.toDto( project.getClient() ) );
-        projectDto.setTitle( project.getTitle() );
-        projectDto.setDescription( project.getDescription() );
         projectDto.setBudget( project.getBudget() );
-        projectDto.setDeadline( project.getDeadline() );
-        projectDto.setStatus( project.getStatus() );
+        projectDto.setClient( userMapper.toDto( project.getClient() ) );
         projectDto.setCreatedAt( project.getCreatedAt() );
+        projectDto.setDeadline( project.getDeadline() );
+        projectDto.setDescription( project.getDescription() );
+        projectDto.setId( project.getId() );
+        projectDto.setStatus( project.getStatus() );
+        projectDto.setTitle( project.getTitle() );
 
         return projectDto;
     }
@@ -62,10 +62,10 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         Project.ProjectBuilder project = Project.builder();
 
-        project.title( projectRequest.getTitle() );
-        project.description( projectRequest.getDescription() );
         project.budget( projectRequest.getBudget() );
         project.deadline( projectRequest.getDeadline() );
+        project.description( projectRequest.getDescription() );
+        project.title( projectRequest.getTitle() );
 
         return project.build();
     }
